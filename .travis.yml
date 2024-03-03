@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t egw/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run egw/docker-react npm run test -- --coverage
